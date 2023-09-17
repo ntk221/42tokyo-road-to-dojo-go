@@ -17,18 +17,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: "ca-tech-dojo"
 
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    ports:
-      - 4000:80
-    environment:
-      PMA_ARBITRARY: 1
-      PMA_HOST: mysql
-      PMA_USER: root
-      PMA_PASSWORD: "ca-tech-dojo"
-    links:
-      - mysql
-
   swagger-ui:
     image: swaggerapi/swagger-ui:latest
     ports:
