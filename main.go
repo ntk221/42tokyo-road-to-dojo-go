@@ -21,8 +21,8 @@ func (s *GameServer) Create(
 ) (*connect.Response[gamev1.CreateResponse], error) {
 	log.Println("Request headers: ", req.Header())
 	res := connect.NewResponse(&gamev1.CreateResponse{
-		Status:  "OK!",
-		Message: fmt.Sprintf("Hello, %s", req.Msg.UserName),
+		Status: "OK!",
+		Token:  fmt.Sprintf("Hello, %s", req.Msg.UserName),
 	})
 	res.Header().Set("Game-Version", "v1")
 	return res, nil

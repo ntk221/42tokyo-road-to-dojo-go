@@ -34,6 +34,5 @@ func TestGameServer_Create(t *testing.T) {
 		log.Fatalf("failed to create: %v", err)
 	}
 
-	fmt.Printf("Status: %s\n", res.Msg.Status)
-	fmt.Printf("Message: %s\n", res.Msg.Message)
+	fmt.Println(res.Msg.GetToken())
 }

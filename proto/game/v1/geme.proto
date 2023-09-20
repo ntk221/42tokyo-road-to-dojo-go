@@ -16,5 +16,5 @@ message CreateRequest {
 // statusに対応するmessageも一緒に返す
 message CreateResponse {
   string status = 1;
-  string message = 2;
+  string token = 2;
 }

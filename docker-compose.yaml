@@ -8,11 +8,18 @@ services:
 
   mysql:
     image: mysql:latest
-    ports:
-      - ${MYSQL_PORT}:3306
-    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    container_name: mysql
     environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"  # パスワードなしでログイン可能にします
+      MYSQL_DATABASE: game
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
+      MYSQL_ROOT_PASSWORD: rootpassword
+    volumes:
+      - db-data:/var/lib/mysql
+      - $PWD/_tools/mysql/conf.d:/etc/mysql/conf.d:cached
+    ports:
+      - 3306:3306
 
   swagger-ui:
     image: swaggerapi/swagger-ui:latest
@@ -25,4 +32,3 @@ services:
 
 volumes:
   db-data:
-    driver: local
