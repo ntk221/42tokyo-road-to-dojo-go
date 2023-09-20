@@ -1,0 +1,20 @@
+syntax='proto3';
+
+package game.v1;
+
+option go_package = "game/v1";
+
+service UserService {
+  rpc Create(CreateRequest) returns (CreateResponse);
+}
+
+message CreateRequest {
+  string user_name = 1;
+}
+
+// CreateResponse はCreateの結果をstatusとして返し
+// statusに対応するmessageも一緒に返す
+message CreateResponse {
+  string status = 1;
+  string message = 2;
+}
