@@ -23,3 +23,6 @@ seed:
 
 deleteData:
 	mysql -h 127.0.0.1 -u myuser game -p < dropTables.sql
+
+boiler:
+	sqlboiler mysql -c sqlboiler.toml -o models -p models --no-tests --wipe
